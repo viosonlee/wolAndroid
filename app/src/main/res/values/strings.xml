@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Wol</string>
+    <string name="pls_choose_role">请选择角色</string>
+    <string name="sender">发送端</string>
+    <string name="recevier">接收端</string>
+    <string name="send_wol_message">发送唤醒指令</string>
+    <string name="bind">绑定电脑</string>
+    <string name="target_pc_mac_address">目标电脑的mac地址</string>
+    <string name="target_pc_ip">目标电脑的ip地址</string>
+    <string name="target_pc_port">目标电脑的唤醒端口，默认9</string>
+</resources>
