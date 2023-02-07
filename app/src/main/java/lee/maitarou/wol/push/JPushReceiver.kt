@@ -5,6 +5,7 @@ import android.content.Intent
 import cn.jpush.android.api.CustomMessage
 import cn.jpush.android.api.JPushMessage
 import cn.jpush.android.service.JPushMessageReceiver
+import lee.maitarou.wol.wol.WolSender
 import lee.maitarou.wol.wol.WolService
 
 /**
@@ -18,7 +19,10 @@ class JPushReceiver : JPushMessageReceiver() {
         context?.startService(Intent(context, WolService::class.java))
     }
 
-    override fun onTagOperatorResult(p0: Context?, p1: JPushMessage?) {
-        super.onTagOperatorResult(p0, p1)
+    override fun onAliasOperatorResult(p0: Context?, p1: JPushMessage?) {
+        super.onAliasOperatorResult(p0, p1)
+        if (p1?.sequence == WolSender.setTagOptionID) {
+            WolSender.onSetTag(p1.errorCode == 0)
+        }
     }
 }

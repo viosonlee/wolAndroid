@@ -15,6 +15,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import lee.maitarou.wol.R
+import lee.maitarou.wol.alias
 import lee.maitarou.wol.push.PushRequest
 import lee.maitarou.wol.utils.PushConfig
 import lee.maitarou.wol.utils.pushApiService
@@ -42,7 +43,7 @@ fun SenderUi() {
             //发送极光推送，接收端接收到后发送wol通知
             pushApiService {
                 scope.launch {
-                    val request = PushRequest.wolPush(macAddress)
+                    val request = PushRequest.wolPush(macAddress.alias)
                     val result = push(PushConfig.secret, request)
                     if (result.isSuccessful) {
                         WolSender.setLastTarget(context, macAddress)

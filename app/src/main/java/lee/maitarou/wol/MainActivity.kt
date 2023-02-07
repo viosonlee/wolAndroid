@@ -78,4 +78,8 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    override fun onBackPressed() {
+        moveTaskToBack(false)
+    }
 }

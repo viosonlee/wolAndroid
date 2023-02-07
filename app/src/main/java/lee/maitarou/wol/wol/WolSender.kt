@@ -13,6 +13,8 @@ import java.net.UnknownHostException
  *DESCRIPTION:
  */
 object WolSender {
+    const val setTagOptionID = 19
+
     private const val bindAddressKey = "bindAddress"
     private const val bindIpKey = "bindIp"
     private const val bindPortKey = "bindPort"
@@ -28,6 +30,12 @@ object WolSender {
                 putString(lastTargetKey, macAddress)
             }
         }
+    }
+
+    var bindDeviceCallback: ((success: Boolean) -> Unit)? = null
+
+    fun onSetTag(success: Boolean) {
+        bindDeviceCallback?.invoke(success)
     }
 
     /**
