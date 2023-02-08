@@ -29,9 +29,20 @@ android {
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
         ]
     }
-
-    buildTypes {
+    signingConfigs {
         release {
+            storeFile file('../vioson_android_key.jks')
+            keyAlias 'vioson'
+            keyPassword 'lifeng'
+            storePassword 'lifeng'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
